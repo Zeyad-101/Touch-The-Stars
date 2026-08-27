@@ -1,1 +1,0 @@
-self.__REACT_LOADABLE_MANIFEST="{\"app\\\\page.js -> @/components/SceneCanvas\":{\"id\":\"app\\\\page.js -> @/components/SceneCanvas\",\"files\":[\"static/chunks/_app-pages-browser_components_SceneCanvas_jsx.js\"]}}"
