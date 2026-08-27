@@ -1,0 +1,65 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Background Radial Gradient -->
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#020617" />
+    </radialGradient>
+    
+    <!-- Primary Star Golden Gradient -->
+    <linearGradient id="starGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFDF0" />
+      <stop offset="25%" stop-color="#FDE047" />
+      <stop offset="70%" stop-color="#EAB308" />
+      <stop offset="100%" stop-color="#CA8A04" />
+    </linearGradient>
+
+    <!-- Glow Filters -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="14" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="28" />
+    </filter>
+    
+    <!-- Celestial Orbit Accent Gradient -->
+    <linearGradient id="orbitGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.85" />
+      <stop offset="50%" stop-color="#818CF8" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#C084FC" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Rounded Tile -->
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)" stroke="#1e293b" stroke-width="8" />
+
+  <!-- Ambient Golden & Cyan Celestial Glows -->
+  <circle cx="256" cy="256" r="130" fill="#EAB308" opacity="0.2" filter="url(#softGlow)" />
+  <circle cx="256" cy="256" r="70" fill="#38BDF8" opacity="0.15" filter="url(#softGlow)" />
+
+  <!-- Celestial Orbit Ring -->
+  <ellipse cx="256" cy="256" rx="175" ry="60" transform="rotate(-30 256 256)" stroke="url(#orbitGrad)" stroke-width="4.5" stroke-dasharray="12 8" />
+
+  <!-- Accent Constellation Stars -->
+  <!-- Star 1 (Top Left) -->
+  <path d="M120 130L125 145L140 150L125 155L120 170L115 155L100 150L115 145Z" fill="#FDE047" opacity="0.85" />
+  <!-- Star 2 (Bottom Right) -->
+  <path d="M390 350L394 362L406 366L394 370L390 382L386 370L374 366L386 362Z" fill="#38BDF8" opacity="0.9" />
+  <!-- Star 3 (Top Right) -->
+  <circle cx="370" cy="140" r="5" fill="#FFFFFF" opacity="0.8" />
+  <!-- Star 4 (Bottom Left) -->
+  <circle cx="140" cy="375" r="4" fill="#F8FAFC" opacity="0.75" />
+
+  <!-- Central Celestial Polaris Star -->
+  <g filter="url(#glow)">
+    <!-- Diagonal Secondary Star Rays -->
+    <path d="M256 120L266 246L392 256L266 266L256 392L246 266L120 256L246 246Z" fill="url(#starGrad)" opacity="0.65" transform="rotate(45 256 256)" />
+    <!-- Primary Vertical / Horizontal Star Rays -->
+    <path d="M256 64 C256 180 230 240 70 256 C230 272 256 332 256 448 C256 332 282 272 442 256 C282 240 256 180 256 64 Z" fill="url(#starGrad)" />
+  </g>
+
+  <!-- Intense White-Hot Star Core -->
+  <circle cx="256" cy="256" r="16" fill="#FFFFFF" />
+  <circle cx="256" cy="256" r="28" fill="#FEF08A" opacity="0.6" />
+</svg>

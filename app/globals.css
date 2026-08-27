@@ -1,42 +1,116 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #000;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+/* Custom Sleek Mission-Control Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 2px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.45);
+}
+
+/* Rocket Launch Animations */
+.launch-stars {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(1px 1px at 30px 40px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 160px 90px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 300px 240px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 450px 380px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 620px 140px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 780px 500px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 940px 280px, #ffffff, rgba(0,0,0,0));
+  background-size: 800px 600px;
+  opacity: 0.65;
+  animation: starStream 1.2s linear infinite;
+}
+
+@keyframes starStream {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 600px; }
+}
+
+.rocket-exhaust {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -3px;
+}
+
+.flame-outer {
+  width: 16px;
+  height: 52px;
+  background: linear-gradient(to bottom, #D08770, #BF616A 60%, transparent);
+  border-radius: 0 0 50% 50%;
+  filter: blur(1px);
+  animation: flameFlicker 0.12s ease-in-out infinite alternate;
+}
+
+.flame-core {
+  position: absolute;
+  top: 0;
+  width: 9px;
+  height: 30px;
+  background: linear-gradient(to bottom, #FFFFFF, #EBCB8B, #D08770);
+  border-radius: 0 0 50% 50%;
+  animation: coreFlicker 0.08s ease-in-out infinite alternate;
+  z-index: 2;
+}
+
+@keyframes flameFlicker {
+  0% { height: 46px; transform: scaleX(0.85); opacity: 0.9; }
+  100% { height: 60px; transform: scaleX(1.2); opacity: 1; filter: blur(2px) drop-shadow(0 0 12px #D08770); }
+}
+
+@keyframes coreFlicker {
+  0% { height: 26px; transform: scaleX(0.8); }
+  100% { height: 35px; transform: scaleX(1.15); }
+}
+
+.smoke-puff {
+  position: absolute;
+  background: rgba(236, 239, 244, 0.2);
+  border-radius: 50%;
+  filter: blur(5px);
+  animation: smokeDrift 0.75s ease-out infinite;
+}
+
+.puff-1 { width: 18px; height: 18px; top: 38px; animation-delay: 0s; }
+.puff-2 { width: 24px; height: 24px; top: 48px; left: -10px; animation-delay: 0.2s; }
+.puff-3 { width: 22px; height: 22px; top: 52px; right: -10px; animation-delay: 0.4s; }
+
+@keyframes smokeDrift {
+  0% { transform: translateY(0) scale(0.6); opacity: 0.6; }
+  100% { transform: translateY(40px) scale(2.2); opacity: 0; }
+}
+
+.blinking-dot {
+  width: 7px;
+  height: 7px;
+  background-color: #EBCB8B;
+  border-radius: 50%;
+  animation: blink 0.8s infinite alternate;
+  box-shadow: 0 0 8px #EBCB8B;
+}
+
+@keyframes blink {
+  0% { opacity: 0.2; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1.25); }
 }
